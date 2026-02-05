@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paito HK Warna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .selected-red { background-color: #ef4444 !important; }
+        .selected-blue { background-color: #3b82f6 !important; }
+    </style>
+</head>
+<body class="bg-gray-100 p-5">
+    <h1 class="text-2xl font-bold mb-4">Paito HK Warna Otomatis</h1>
+    <div id="paito-container" class="bg-white p-4 rounded shadow overflow-x-auto">
+        <!-- Tabel akan muncul di sini via Javascript -->
+    </div>
+
+    <script>
+        // Fungsi klik ganti warna
+        document.addEventListener('click', function (e) {
+            if (e.target.tagName === 'TD') {
+                e.target.classList.toggle('selected-red');
+            }
+        });
+
+        // Ambil data dari API scraper Anda
+        async function loadData() {
+            const res = await fetch('/api/scrape');
+            const json = await res.json();
+            // Logika render tabel di sini...
+        }
+        loadData();
+    </script>
+</body>
+</html>
